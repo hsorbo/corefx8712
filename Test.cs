@@ -12,11 +12,7 @@ namespace ConsoleApplication
     {
          public void ConfigureServices(IServiceCollection services)
          {
-             //Without this: System.InvalidOperationException : 
-             //Unable to resolve service for type 'System.Text.Encodings.Web.UrlEncoder' 
-             //while attempting to activate 'Microsoft.AspNetCore.Authentication.JwtBearer.JwtBearerMiddleware'.
-             services.AddScoped<System.Text.Encodings.Web.UrlEncoder>(
-                 _ => System.Text.Encodings.Web.UrlEncoder.Default);
+            services.AddAuthentication();
          }
 
          public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
